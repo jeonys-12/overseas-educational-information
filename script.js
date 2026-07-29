@@ -15,24 +15,22 @@ async function loadContent() {
     renderPage();
   } catch (error) {
     console.error("교육정보를 불러오지 못했습니다.", error);
-    qs("#notice-list").innerHTML =
-      "<span>교육정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.</span>";
+    const errorTarget = qs("#program-list");
+    if (errorTarget) {
+      errorTarget.innerHTML =
+        "<p class=\"empty-state\">교육정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p>";
+    }
     showToast("콘텐츠 로딩 오류가 발생했습니다.");
   }
 }
 
 function renderPage() {
-  const { meta, notices, operation, programs, process, resources, faqs, contacts } =
-    state.content;
+  const { meta, operation, programs, process, faqs, contacts } = state.content;
 
   document.title = meta.pageTitle;
   qs("#target-title").textContent = meta.targetShort;
   qs("#target-detail").textContent = meta.targetDetail;
 
-  const notice = notices[0];
-  qs("#notice-list").innerHTML = notice
-    ? `<span>${escapeHtml(notice.text)}</span><time datetime="${escapeHtml(notice.date)}">${formatDate(notice.date)}</time>`
-    : "<span>등록된 공지사항이 없습니다.</span>";
 
   qs("#operation-list").innerHTML = operation
     .map(
@@ -67,19 +65,6 @@ function renderPage() {
     )
     .join("");
 
-  qs("#resource-list").innerHTML = resources
-    .map(
-      (resource) => `
-        <a class="resource-card" href="${safeUrl(resource.url)}" target="_blank" rel="noopener noreferrer">
-          <span class="resource-card__icon">${escapeHtml(resource.type)}</span>
-          <span>
-            <strong>${escapeHtml(resource.title)}</strong>
-            <small>${escapeHtml(resource.description)}</small>
-          </span>
-          <span class="resource-card__arrow" aria-hidden="true">↗</span>
-        </a>`,
-    )
-    .join("");
 
   qs("#faq-list").innerHTML = faqs
     .map(
