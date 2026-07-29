@@ -175,8 +175,8 @@ main {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 430px;
-  padding: 58px clamp(44px, 8vw, 128px) 40px;
+  min-height: 0;
+  padding: 42px clamp(44px, 8vw, 128px) 34px;
   color: #fff;
   background:
     radial-gradient(circle at 86% 22%, rgba(243, 115, 33, 0.27), transparent 30%),
@@ -982,8 +982,8 @@ main {
   }
 
   .hero {
-    min-height: auto;
-    padding-top: 52px;
+    min-height: 0;
+    padding-top: 40px;
   }
 
   .hero__summary {
@@ -1105,8 +1105,8 @@ main {
   }
 
   .hero {
-    min-height: auto;
-    padding: 68px 24px 35px;
+    min-height: 0;
+    padding: 38px 24px 32px;
   }
 
   .hero h1 {
