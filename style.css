@@ -428,6 +428,14 @@ main {
   color: var(--muted);
 }
 
+#operation > .callout {
+  margin-bottom: 18px;
+}
+
+#operation .target-grid {
+  margin-bottom: 18px;
+}
+
 .target-grid {
   display: grid;
   grid-template-columns: 0.75fr 1.25fr;
