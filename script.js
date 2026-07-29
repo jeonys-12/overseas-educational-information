@@ -28,6 +28,7 @@ function renderPage() {
   const { meta, operation, programs, process, faqs, contacts } = state.content;
 
   document.title = meta.pageTitle;
+  qs("#direction-title").textContent = meta.headquartersDirection;
   qs("#target-title").textContent = meta.targetShort;
   qs("#target-detail").textContent = meta.targetDetail;
 
