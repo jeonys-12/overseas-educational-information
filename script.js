@@ -26,7 +26,6 @@ function renderPage() {
     state.content;
 
   document.title = meta.pageTitle;
-  qs("#hero-target").textContent = meta.targetShort;
   qs("#target-title").textContent = meta.targetShort;
   qs("#target-detail").textContent = meta.targetDetail;
 
@@ -218,8 +217,6 @@ function setupStaticEvents() {
     state.query = event.target.value;
     renderPrograms();
   });
-
-  qs("#print-guide").addEventListener("click", () => window.print());
 
   const sections = qsa("main section[id]");
   const navLinks = qsa(".side-nav a");
