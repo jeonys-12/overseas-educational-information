@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "pageTitle": "해외사업본부 교육계획 안내",
+    "projectName": "해외사업본부 교육계획 공지 및 안내",
+    "targetShort": "1급 이하 전 임직원",
+    "targetDetail": "PJ 촉탁·현채직 포함",
+    "department": "해외지원팀",
+    "lastUpdated": "2026-07-29"
+  },
+  "notices": [
+    {
+      "date": "2026-07-29",
+      "text": "교육과정별 이수 인정기준과 비용 지원조건은 각 제도 안내에서 최신 내용을 확인해 주세요."
+    }
+  ],
+  "operation": [
+    {
+      "title": "자기주도학습 활성화",
+      "description": "CRM·IDP와 연계해 개인의 경력목표와 직무에 필요한 학습을 스스로 계획하고 실행합니다."
+    },
+    {
+      "title": "교육기회 확대",
+      "description": "원활한 사내 온라인 교육환경을 조성하고, 외부 전문기관의 위탁교육 참여기회를 제공합니다."
+    },
+    {
+      "title": "기존교육 활성화",
+      "description": "신규 부임자 교육과 부서별 직무교육을 사업 재개와 현업 수요에 맞춰 단계적으로 확대합니다."
+    }
+  ],
+  "programs": [
+    {
+      "id": "conference-certificate",
+      "category": "자기주도학습",
+      "title": "학회·자격과정",
+      "description": "해외사업 역량을 강화하고 업무 연관 자격 취득을 장려합니다. 비즈니스 회화·영어 인터뷰, 기사·안전기사 과정 등을 활용할 수 있습니다.",
+      "keywords": ["학회", "자격증", "영어", "비즈니스 회화", "기사", "안전기사"],
+      "meta": {
+        "이수 인정": "월 2시간",
+        "연간 한도": "최대 10시간",
+        "비용 지원": "월 2만원/인"
+      },
+      "links": [
+        {
+          "label": "사내 제도 안내",
+          "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=178441"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "category": "자기주도학습",
+      "title": "독서학습",
+      "description": "건설산업, 직무 및 경영 관련 도서를 읽고 업무 인사이트와 전문지식을 확장합니다.",
+      "keywords": ["독서", "도서", "건설산업", "직무", "경영"],
+      "meta": {
+        "해외근무자": "권당 월 8시간",
+        "국내근무자": "권당 월 4시간",
+        "연간 한도": "해외 40시간·국내 20시간"
+      },
+      "links": [
+        {
+          "label": "독서제도 안내",
+          "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=203374"
+        }
+      ]
+    },
+    {
+      "id": "channel-h",
+      "category": "자기주도학습",
+      "title": "온라인 교육 · Channel H",
+      "description": "전략·재무·영업 등 직무역량, 리더십, 영어를 비롯한 다양한 콘텐츠를 개인 수요에 맞춰 학습합니다.",
+      "keywords": ["온라인", "Channel H", "채널H", "전략", "재무", "영업", "리더십", "영어"],
+      "meta": {
+        "이수 인정": "수강시간 × 0.5",
+        "연간 한도": "최대 20시간",
+        "수강 방식": "온라인"
+      },
+      "links": [
+        {
+          "label": "Channel H 바로가기",
+          "url": "https://chhplus.hanwha.com/web/you/youMain.do"
+        }
+      ]
+    },
+    {
+      "id": "inhouse",
+      "category": "교육환경 조성",
+      "title": "건설부문 사내교육",
+      "description": "Zoom 기반 온라인 교육을 활성화하고, 필요 시 본사 또는 타 본부 교육을 청강해 실무역량을 보완합니다.",
+      "keywords": ["사내교육", "Zoom", "줌", "청강", "온라인"],
+      "meta": {
+        "운영 방식": "Zoom 중심",
+        "참여 방식": "교육별 별도 안내",
+        "대상": "관련 직무 임직원"
+      },
+      "links": [
+        {
+          "label": "교육 기획 매뉴얼",
+          "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=22705"
+        }
+      ]
+    },
+    {
+      "id": "external-training",
+      "category": "교육환경 조성",
+      "title": "사외 위탁교육",
+      "description": "사내강사를 지정해 휴가기간 중 외부 전문교육 참여기회를 제공하고 해외건설협회 교육과정을 적극 활용합니다.",
+      "keywords": ["위탁교육", "사외교육", "해외건설협회", "사내강사", "휴가"],
+      "meta": {
+        "사내강사": "지정 인원",
+        "전파교육": "수료 후 3개월 이내",
+        "신청": "사내 절차 확인"
+      },
+      "links": [
+        {
+          "label": "해외건설협회 과정",
+          "url": "https://www.icak.or.kr/html/business/classInfo"
+        },
+        {
+          "label": "신청·결과보고 안내",
+          "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=22705"
+        }
+      ]
+    },
+    {
+      "id": "new-assignee",
+      "category": "기존교육",
+      "title": "신규 부임자 교육",
+      "description": "이라크 현지 적응과 조기 전력화를 위해 온보딩, BNCP 소개, 해외현장 생활안내 등을 제공합니다.",
+      "keywords": ["신규 부임", "온보딩", "이라크", "BNCP", "현장생활"],
+      "meta": {
+        "목적": "현지 조기 적응",
+        "주요 내용": "BNCP·현장생활",
+        "일정": "부임계획별 안내"
+      },
+      "links": [
+        {
+          "label": "담당자 문의",
+          "url": "mailto:uhnm159@hanwha.com"
+        }
+      ]
+    },
+    {
+      "id": "department-training",
+      "category": "기존교육",
+      "title": "부서별 직무교육",
+      "description": "이라크 실행예산 편성, 외주·구매, 물류 등 현업 중심 교육을 사업 재개 상황에 따라 단계적으로 확대합니다.",
+      "keywords": ["직무교육", "실행예산", "이라크", "외주", "구매", "물류"],
+      "meta": {
+        "운영": "단계적 확대",
+        "분야": "예산·외주·구매·물류",
+        "일정": "부서별 별도 안내"
+      },
+      "links": [
+        {
+          "label": "교육 기획 매뉴얼",
+          "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=22705"
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "학습계획 수립",
+      "description": "CRM·IDP와 직무 필요역량을 기준으로 학습목표를 정합니다."
+    },
+    {
+      "title": "제도·과정 확인",
+      "description": "지원조건, 인정시간과 신청방법을 과정별 안내에서 확인합니다."
+    },
+    {
+      "title": "신청 및 학습",
+      "description": "필요한 사전승인을 받고 교육·독서·온라인학습을 진행합니다."
+    },
+    {
+      "title": "이수·결과 관리",
+      "description": "증빙과 결과를 등록하고 사내강사는 3개월 내 전파교육을 실시합니다."
+    }
+  ],
+  "resources": [
+    {
+      "type": "INFO",
+      "title": "학회·자격과정 제도",
+      "description": "지원기준 및 인정시간 확인",
+      "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=178441"
+    },
+    {
+      "type": "INFO",
+      "title": "독서학습 제도",
+      "description": "도서 기준 및 이수 인정 확인",
+      "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=203374"
+    },
+    {
+      "type": "WEB",
+      "title": "Channel H",
+      "description": "온라인 학습 콘텐츠 수강",
+      "url": "https://chhplus.hanwha.com/web/you/youMain.do"
+    },
+    {
+      "type": "WEB",
+      "title": "해외건설협회 교육",
+      "description": "외부 전문교육 과정 확인",
+      "url": "https://www.icak.or.kr/html/business/classInfo"
+    },
+    {
+      "type": "GUIDE",
+      "title": "사내교육 기획·진행 매뉴얼",
+      "description": "위탁교육 신청과 결과보고 포함",
+      "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=22705"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "교육 대상에는 해외현장 근무자도 포함되나요?",
+      "answer": "네. 1급 이하 전 임직원이 대상이며 PJ 촉탁·현채직도 포함합니다. 과정별 세부 대상은 별도 안내를 확인해 주세요."
+    },
+    {
+      "question": "독서학습 인정시간은 국내·해외근무자가 다른가요?",
+      "answer": "해외근무자는 권당 월 8시간, 국내근무자는 권당 월 4시간을 인정합니다. 연간 최대 인정시간은 각각 40시간과 20시간입니다."
+    },
+    {
+      "question": "Channel H 수강시간은 모두 이수시간으로 인정되나요?",
+      "answer": "수강시간의 0.5배를 역량개발 이수시간으로 인정하며, 연간 최대 20시간까지 인정됩니다."
+    },
+    {
+      "question": "외부 위탁교육을 받은 사내강사의 의무사항은 무엇인가요?",
+      "answer": "외부교육 수료 후 3개월 이내에 관련 내용을 구성원에게 전파교육해야 합니다. 신청과 결과보고 절차는 사내 매뉴얼을 확인해 주세요."
+    },
+    {
+      "question": "교육비 지원과 이수 인정기준은 어디에서 최종 확인하나요?",
+      "answer": "각 프로그램 카드의 사내 제도 안내 링크에서 최신 기준을 확인해 주세요. 본 페이지와 사내 규정이 다를 경우 최신 사내 규정을 우선합니다."
+    }
+  ],
+  "contacts": [
+    {
+      "role": "교육기획 담당",
+      "name": "전영석 차장",
+      "department": "해외지원팀",
+      "phone": "02-2182-3276",
+      "email": "jeonys1201@hanwha.com"
+    },
+    {
+      "role": "교육운영 담당",
+      "name": "권권림",
+      "department": "해외지원팀",
+      "phone": "02-2182-3278",
+      "email": "uhnm159@hanwha.com"
+    }
+  ]
+}
