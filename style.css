@@ -6,7 +6,8 @@
   --line: #e7e5e1;
   --soft: #f6f5f2;
   --white: #ffffff;
-  --sidebar: 250px;
+  --sidebar: 226px;
+  --header-height: 104px;
   --shadow: 0 8px 24px rgba(21, 19, 16, 0.06);
 }
 
@@ -16,7 +17,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 24px;
+  scroll-padding-top: calc(var(--header-height) + 20px);
 }
 
 body {
@@ -75,13 +76,14 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: 28px 22px 22px;
+  padding: 0 22px 22px;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 13px;
+  min-height: var(--header-height);
   color: inherit;
   text-decoration: none;
 }
@@ -111,7 +113,7 @@ a {
 .side-nav {
   display: grid;
   gap: 2px;
-  margin-top: 46px;
+  margin-top: 18px;
 }
 
 .side-nav a {
@@ -173,14 +175,22 @@ main {
 }
 
 .hero {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
-  min-height: 0;
-  padding: 18px clamp(30px, 5vw, 76px) 16px;
+  height: var(--header-height);
+  min-height: var(--header-height);
+  padding: 13px clamp(30px, 5vw, 68px);
   color: #fff;
   background:
     radial-gradient(circle at 86% 22%, rgba(243, 115, 33, 0.27), transparent 30%),
     linear-gradient(120deg, #191919 0%, #27231f 65%, #201b18 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.14);
 }
 
 .hero::after {
@@ -975,7 +985,7 @@ main {
 
 @media (max-width: 1020px) {
   :root {
-    --sidebar: 230px;
+    --sidebar: 216px;
   }
 
   .sidebar__inner {
@@ -983,8 +993,7 @@ main {
   }
 
   .hero {
-    min-height: 0;
-    padding: 18px clamp(24px, 4vw, 44px) 16px;
+    padding-inline: clamp(24px, 4vw, 44px);
   }
 
   .hero__summary {
@@ -1024,7 +1033,7 @@ main {
 
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 190px;
   }
 
   body {
@@ -1042,6 +1051,10 @@ main {
     padding: 0 18px;
     color: #fff;
     background: #151515;
+  }
+
+  .brand--compact {
+    min-height: 0;
   }
 
   .brand--compact img {
@@ -1093,6 +1106,7 @@ main {
   }
 
   .sidebar .brand {
+    min-height: 64px;
     margin-top: 35px;
   }
 
@@ -1106,8 +1120,11 @@ main {
   }
 
   .hero {
-    min-height: 0;
-    padding: 17px 18px 15px;
+    top: 64px;
+    height: auto;
+    min-height: 112px;
+    padding: 14px 18px 13px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
   }
 
   .hero__eyebrow {
