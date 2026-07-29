@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 96" role="img" aria-labelledby="title">
+  <title id="title">Hanwha Tri-Circle style mark</title>
+  <g fill="none" stroke="#f37321" stroke-width="10">
+    <ellipse cx="55" cy="42" rx="40" ry="22" transform="rotate(-32 55 42)"/>
+    <ellipse cx="95" cy="42" rx="40" ry="22" transform="rotate(32 95 42)"/>
+    <ellipse cx="75" cy="62" rx="40" ry="22"/>
+  </g>
+</svg>
