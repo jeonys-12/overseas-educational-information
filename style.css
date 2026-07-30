@@ -213,7 +213,7 @@ a { -webkit-tap-highlight-color: transparent; }
   margin-bottom: 8px;
   text-align: left;
 }
-.hero-contact__heading span:empty { display: none; }
+.hero-contact__heading span { display: none; }
 .hero-contact__heading h2 {
   display: inline-flex;
   align-items: center;
