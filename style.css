@@ -208,24 +208,33 @@ a { -webkit-tap-highlight-color: transparent; }
 }
 .hero-contact__heading {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: 8px;
+  text-align: left;
 }
-.hero-contact__heading span {
-  color: #ff9a59;
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-}
+.hero-contact__heading span:empty { display: none; }
 .hero-contact__heading h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin: 0;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: -0.02em;
+  color: #ff9a59;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
-.contact-list { display: grid; }
+.hero-contact__heading h2::before {
+  width: 18px;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 999px;
+  content: "";
+}
+.contact-list {
+  display: grid;
+  text-align: left;
+}
 .contact-card {
   padding: 13px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
