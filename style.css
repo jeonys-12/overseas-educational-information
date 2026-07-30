@@ -4,12 +4,12 @@
   --orange-soft: #fff2e9;
   --ink: #20252b;
   --muted: #66707a;
-  --line: #e3e7eb;
-  --soft: #f6f7f8;
+  --line: #dde2e6;
+  --soft: #f3f5f6;
   --white: #ffffff;
-  --hero-bg: #252a2f;
-  --sidebar-bg: #363b41;
-  --dark-line: rgba(255, 255, 255, 0.1);
+  --hero-bg: #272b30;
+  --sidebar-bg: #4a5057;
+  --dark-line: rgba(255, 255, 255, 0.12);
   --sidebar: 240px;
   --header-height: 108px;
   --radius: 12px;
@@ -29,7 +29,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--white);
+  background: var(--soft);
   font-family:
     Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 15px;
@@ -81,9 +81,9 @@ a {
   inset: 0 auto 0 0;
   z-index: 50;
   width: var(--sidebar);
-  color: #f4f5f6;
+  color: #f7f8f9;
   background: var(--sidebar-bg);
-  border-right: 1px solid #454a50;
+  border-right: 1px solid #5a6169;
 }
 
 .sidebar__inner {
@@ -105,7 +105,7 @@ a {
 .sidebar .brand {
   margin-inline: -20px;
   padding-inline: 22px;
-  background: #30353a;
+  background: #434950;
   border-bottom: 1px solid var(--dark-line);
 }
 
@@ -131,7 +131,7 @@ a {
 
 .brand__text small {
   margin-top: 5px;
-  color: #aeb4ba;
+  color: #c0c5ca;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -150,7 +150,7 @@ a {
   gap: 13px;
   min-height: 44px;
   padding: 10px 12px;
-  color: #c3c8cd;
+  color: #d5d9dd;
   border-radius: 9px;
   text-decoration: none;
   font-size: 14px;
@@ -172,7 +172,7 @@ a {
 }
 
 .side-nav a span {
-  color: #9199a1;
+  color: #aeb5bc;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -181,7 +181,7 @@ a {
 .side-nav a:hover,
 .side-nav a.is-active {
   color: #ffffff;
-  background: rgba(243, 115, 33, 0.16);
+  background: rgba(243, 115, 33, 0.14);
 }
 
 .side-nav a.is-active::before {
@@ -194,6 +194,7 @@ a {
 
 main {
   margin-left: var(--sidebar);
+  background: var(--white);
 }
 
 .mobile-header {
@@ -212,9 +213,9 @@ main {
   min-height: var(--header-height);
   padding: 14px clamp(30px, 5vw, 72px);
   color: #ffffff;
-  background: rgba(37, 42, 47, 0.97);
+  background: rgba(39, 43, 48, 0.98);
   border-bottom: 1px solid #3b4147;
-  box-shadow: 0 5px 18px rgba(10, 13, 16, 0.18);
+  box-shadow: 0 5px 18px rgba(10, 13, 16, 0.16);
   backdrop-filter: blur(12px);
 }
 
@@ -295,7 +296,7 @@ main {
   position: absolute;
   inset: 0 calc(50% - 50vw);
   z-index: -1;
-  background: #f8f9fa;
+  background: #f3f5f6;
   content: "";
 }
 
@@ -476,7 +477,7 @@ main {
   margin-top: 16px;
   padding: 15px 18px;
   color: var(--muted);
-  background: #eef1f3;
+  background: #e9edef;
   border-radius: 9px;
   font-size: 12px;
 }
@@ -495,7 +496,7 @@ main {
   justify-content: space-between;
   gap: 16px;
   padding: 16px;
-  background: #f7f8f9;
+  background: #f1f3f4;
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
@@ -610,7 +611,7 @@ main {
   justify-content: space-between;
   padding: 22px;
   color: var(--ink);
-  background: #f1f3f5;
+  background: #edf0f2;
   border-right: 1px solid var(--line);
 }
 
@@ -690,7 +691,7 @@ main {
   justify-content: center;
   gap: 7px;
   padding: 18px;
-  background: #fcfcfd;
+  background: #f7f8f9;
   border-left: 1px solid var(--line);
 }
 
@@ -722,7 +723,7 @@ main {
 .empty-state {
   padding: 54px 20px;
   text-align: center;
-  background: #fafbfb;
+  background: #f5f7f8;
   border: 1px dashed #cfd5da;
   border-radius: var(--radius);
 }
@@ -909,7 +910,7 @@ main {
   justify-content: space-between;
   padding: 24px clamp(28px, 5vw, 72px);
   color: #939ba3;
-  background: #1f252b;
+  background: #272b30;
   font-size: 12px;
 }
 
@@ -1022,7 +1023,7 @@ main {
     height: 64px;
     padding: 0 18px;
     color: #ffffff;
-    background: rgba(54, 59, 65, 0.98);
+    background: rgba(74, 80, 87, 0.98);
     border-bottom: 1px solid var(--dark-line);
     box-shadow: 0 4px 16px rgba(10, 13, 16, 0.16);
     backdrop-filter: blur(12px);
