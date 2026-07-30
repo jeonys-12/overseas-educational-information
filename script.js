@@ -43,7 +43,8 @@ function renderPage() {
   renderHeading("process", sections.process);
   renderHeading("programs", sections.programs);
   renderHeading("faq", sections.faq);
-  renderHeading("contact", sections.contact);
+  setText("#contact-eyebrow", sections.contact.eyebrow);
+  setText("#contact-title", sections.contact.title);
 
   qs("#direction-card").innerHTML =
     `<strong>${escapeHtml(operation.directionLabel)}</strong><p>${escapeHtml(operation.direction)}</p>`;
@@ -96,7 +97,7 @@ function renderPage() {
   qs("#contact-list").innerHTML = contacts
     .map(
       (contact) =>
-        `<article class="contact-card"><span>${escapeHtml(contact.role)}</span><h3>${escapeHtml(contact.name)}</h3><small>${escapeHtml(contact.department)}</small><a href="tel:${phoneHref(contact.phone)}">${escapeHtml(contact.phone)}</a><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></article>`,
+        `<article class="contact-card"><span>${escapeHtml(contact.role)}</span><h3>${escapeHtml(contact.name)}</h3><small>${escapeHtml(contact.department)}</small><a href="tel:${phoneHref(contact.phone)}" aria-label="${escapeHtml(contact.name)} 전화">${escapeHtml(contact.phone)}</a><a href="mailto:${escapeHtml(contact.email)}" aria-label="${escapeHtml(contact.name)} 이메일">${escapeHtml(contact.email)}</a></article>`,
     )
     .join("");
 
