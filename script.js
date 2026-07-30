@@ -42,8 +42,7 @@ function renderPage() {
   renderHeading("process", sections.process);
   renderHeading("programs", sections.programs);
   renderHeading("faq", sections.faq);
-  setText("#contact-eyebrow", sections.contact.eyebrow);
-  setText("#contact-title", sections.contact.title);
+  setText("#contact-title", "Contact");
 
   qs("#direction-card").innerHTML =
     `<strong>${escapeHtml(operation.directionLabel)}</strong><p>${escapeHtml(operation.direction)}</p>`;
