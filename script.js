@@ -24,7 +24,6 @@ function renderPage() {
   qs('meta[name="description"]').content = meta.description;
   setText("#brand-title", meta.brandTitle);
   setText("#brand-subtitle", meta.brandSubtitle);
-  setText("#print-button", ui.printButton);
   setText("#hero-eyebrow", meta.hero.eyebrow);
   qs("#hero-title").innerHTML = richText(meta.hero.title);
   setText("#hero-description", meta.hero.description);
@@ -176,7 +175,6 @@ function setupStaticEvents() {
     state.query = event.target.value;
     renderPrograms();
   });
-  qs("#print-button").addEventListener("click", () => window.print());
 }
 
 function setupSectionObserver() {
