@@ -114,21 +114,6 @@ a { -webkit-tap-highlight-color: transparent; }
   font-weight: 800;
   letter-spacing: 0.16em;
 }
-.print-button {
-  min-height: 35px;
-  padding: 7px 13px;
-  color: #e8eaec;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 7px;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 700;
-}
-.print-button:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.42);
-}
 .top-nav {
   display: flex;
   gap: 2px;
@@ -768,12 +753,6 @@ a { -webkit-tap-highlight-color: transparent; }
   }
   .brand strong { font-size: 13px; }
   .brand small { display: none; }
-  .print-button {
-    max-width: 106px;
-    min-height: 32px;
-    padding: 5px 8px;
-    line-height: 1.25;
-  }
   .top-nav a {
     padding: 7px 9px;
     font-size: 10px;
@@ -831,37 +810,3 @@ a { -webkit-tap-highlight-color: transparent; }
   }
 }
 
-@media print {
-  .site-header,
-  .program-tools,
-  .site-footer a,
-  .toast { display: none !important; }
-  body { background: #fff; }
-  .hero {
-    color: #000;
-    background: #fff;
-    border-bottom: 2px solid #000;
-  }
-  .hero-copy > p { color: #333; }
-  .hero-contact {
-    color: #000;
-    border-color: #999;
-  }
-  .hero-contact__heading h2,
-  .contact-card h3 { color: #000; }
-  .contact-card a,
-  .contact-card small { color: #333; }
-  .page-stack {
-    width: 100%;
-    padding: 20px 0;
-  }
-  .content-card {
-    break-inside: avoid;
-    padding: 24px 0;
-    border: 0;
-    border-bottom: 1px solid #bbb;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  .program-card { break-inside: avoid; }
-}
