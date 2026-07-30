@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#272b30" />
     <title>해외사업본부 교육정보</title>
     <link rel="icon" href="assets/hanwha-mark.svg?v=20260729" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css?v=20260730-3" />
-    <script src="script.js?v=20260730-3" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260730-4" />
+    <script src="script.js?v=20260730-4" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -30,10 +30,21 @@
     <main id="main-content">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
-          <span class="eyebrow" id="hero-eyebrow"></span>
-          <h1 id="hero-title"></h1>
-          <p id="hero-description"></p>
-          <div class="hero-summary" id="hero-summary"></div>
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <span class="eyebrow" id="hero-eyebrow"></span>
+              <h1 id="hero-title"></h1>
+              <p id="hero-description"></p>
+              <div class="hero-summary" id="hero-summary"></div>
+            </div>
+            <aside class="hero-contact" id="contact" aria-labelledby="contact-title">
+              <div class="hero-contact__heading">
+                <span id="contact-eyebrow"></span>
+                <h2 id="contact-title"></h2>
+              </div>
+              <div class="contact-list" id="contact-list"></div>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -74,10 +85,6 @@
           <div class="faq-list" id="faq-list"></div>
         </section>
 
-        <section class="content-card contact-section" id="contact" aria-labelledby="contact-title">
-          <div class="section-heading" id="contact-heading"></div>
-          <div class="contact-list" id="contact-list"></div>
-        </section>
       </div>
     </main>
 
