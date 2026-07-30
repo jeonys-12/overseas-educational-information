@@ -82,20 +82,25 @@ function renderPage() {
     )
     .join("");
 
-  qs("#contact-list").innerHTML = contacts
-    .map(
-      (contact) => `
-        <article class="contact-card">
-          <span class="contact-card__role">${escapeHtml(contact.role)}</span>
-          <h3>${escapeHtml(contact.name)}</h3>
-          <dl>
-            <dt>부서</dt><dd>${escapeHtml(contact.department)}</dd>
-            <dt>전화</dt><dd><a href="tel:${phoneHref(contact.phone)}">${escapeHtml(contact.phone)}</a></dd>
-            <dt>이메일</dt><dd><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></dd>
-          </dl>
-        </article>`,
-    )
-    .join("");
+  const sidebarContactList = qs("#sidebar-contact-list");
+  if (sidebarContactList) {
+    sidebarContactList.innerHTML = contacts
+      .map(
+        (contact) => `
+          <article class="sidebar-contact__person">
+            <span>${escapeHtml(contact.role)}</span>
+            <strong>${escapeHtml(contact.name)}</strong>
+            <small>${escapeHtml(contact.department)}</small>
+            <a href="tel:${phoneHref(contact.phone)}" aria-label="${escapeHtml(contact.name)} 전화">
+              ${escapeHtml(contact.phone)}
+            </a>
+            <a href="mailto:${escapeHtml(contact.email)}" aria-label="${escapeHtml(contact.name)} 이메일">
+              ${escapeHtml(contact.email)}
+            </a>
+          </article>`,
+      )
+      .join("");
+  }
 
   bindDynamicEvents();
   renderPrograms();
