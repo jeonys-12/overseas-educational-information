@@ -5,90 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="해외사업본부 교육제도와 교육 신청절차를 안내합니다."
+      content="이라크 중심 해외사업의 수주·수행 역량 강화를 위한 해외교육 운영계획을 안내합니다."
     />
-    <meta name="theme-color" content="#292d32" />
-    <title>해외사업본부 교육정보</title>
+    <meta name="theme-color" content="#252a2f" />
+    <title>해외사업본부 해외교육 운영계획</title>
     <link rel="icon" href="assets/hanwha-mark.svg?v=20260729" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css?v=20260730-3" />
-    <script src="script.js?v=20260730-3" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260730-2" />
+    <script src="script.js?v=20260730-2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
-    <header class="site-header" id="top">
-      <div class="header-inner">
-        <a class="brand" href="#top" aria-label="교육정보 홈">
-          <span class="brand-mark">
-            <img src="assets/hanwha-mark.svg?v=20260729" alt="" />
-          </span>
-          <span class="brand-copy">
-            <strong id="brand-title">해외사업본부</strong>
-            <small id="brand-subtitle">EDUCATION GUIDE</small>
-          </span>
-        </a>
-        <nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴"></nav>
-      </div>
+    <header class="mobile-header">
+      <a class="brand brand--compact" href="#top" aria-label="해외사업본부 교육 안내 홈">
+        <img src="assets/hanwha-mark.svg?v=20260729" alt="" />
+        <span>교육정보</span>
+      </a>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-controls="sidebar"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </header>
 
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="page-width">
-          <span class="eyebrow" id="hero-eyebrow"></span>
-          <h1 id="hero-title"></h1>
-          <p id="hero-description"></p>
+    <div class="site-shell" id="top">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__inner">
+          <a class="brand" href="#top" aria-label="해외사업본부 교육 안내 홈">
+            <img src="assets/hanwha-mark.svg?v=20260729" alt="Hanwha 심볼" />
+            <span class="brand__text">
+              <strong>해외사업본부</strong>
+              <small>EDUCATION GUIDE</small>
+            </span>
+          </a>
+
+          <nav class="side-nav" aria-label="주요 메뉴">
+            <a href="#operation" class="is-active"><span>01</span>해외교육 운영계획</a>
+            <a href="#programs"><span>02</span>교육 프로그램</a>
+            <a href="#process"><span>03</span>학습 절차</a>
+            <a href="#faq"><span>04</span>FAQ</a>
+          </nav>
+
+          <section class="sidebar-contact" aria-labelledby="sidebar-contact-title">
+            <div class="sidebar-contact__heading">
+              <span>CONTACT</span>
+              <h2 id="sidebar-contact-title">문의처</h2>
+            </div>
+            <div class="sidebar-contact__list" id="sidebar-contact-list"></div>
+          </section>
         </div>
-      </section>
+      </aside>
+      <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
 
-      <div class="page-width content-stack">
-        <section class="content-section" id="system">
-          <div class="section-heading" id="system-heading"></div>
-          <article class="direction-card" id="direction-card"></article>
-          <div class="card-list" id="system-list"></div>
-          <div class="term-note" id="term-note"></div>
+      <main id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero__eyebrow">OVERSEAS BUSINESS EDUCATION</div>
+          <h1 id="hero-title">해외건설사업 분야별 전문가, <em>교육받고 Level Up</em></h1>
+          <p>이라크 중심 해외사업의 수주·수행 역량 강화를 위해 임직원의 자율적인 학습과 직무 전문성 개발을 지원합니다.</p>
         </section>
 
-        <section class="content-section" id="application">
-          <div class="section-heading" id="application-heading"></div>
-          <ol class="step-list" id="application-list"></ol>
-        </section>
+        <div class="content-wrap">
+          <section class="section section--soft" id="operation">
+            <div class="section-heading">
+              <span>01 · OVERSEAS TRAINING PLAN</span>
+              <h2>해외교육 운영계획</h2>
+              <p>본사 교육 방향과 본부 운영 여건을 반영해 교육 대상과 실행 방안을 통합 안내합니다.</p>
+            </div>
 
-        <section class="content-section" id="programs">
-          <div class="section-heading" id="programs-heading"></div>
-          <div class="program-tools">
-            <label class="search-box">
-              <span class="sr-only">교육 검색</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m21 21-4.35-4.35m2.35-5.4A7.75 7.75 0 1 1 3.5 11.25a7.75 7.75 0 0 1 15.5 0Z" />
-              </svg>
-              <input id="program-search" type="search" autocomplete="off" />
-            </label>
-            <div class="filter-list" id="filter-list" role="group" aria-label="교육 분야 필터"></div>
-          </div>
-          <p class="result-count" id="result-count" aria-live="polite"></p>
-          <div class="program-list" id="program-list"></div>
-          <div class="empty-state" id="empty-state" hidden></div>
-        </section>
+            <aside class="callout">
+              <strong>본사 교육 방향</strong>
+              <p id="direction-title">이라크 중심 해외사업의 수주 및 수행 역량 강화를 위한 분야별 전문인력 육성</p>
+            </aside>
 
-        <section class="content-section" id="faq">
-          <div class="section-heading" id="faq-heading"></div>
-          <div class="faq-list" id="faq-list"></div>
-        </section>
+            <div class="target-grid">
+              <article class="target-card">
+                <span class="target-card__icon" aria-hidden="true">ALL</span>
+                <div>
+                  <h3 id="target-title">1급 이하 전 임직원</h3>
+                  <p id="target-detail">PJ 촉탁·현채직 포함</p>
+                </div>
+              </article>
+              <aside class="callout">
+                <strong>교육 운영 원칙</strong>
+                <p>
+                  해외근무자 비중과 다양한 직종을 고려해 집합교육을 보완하고,
+                  학회·자격과정, 독서, Channel H 등 자기주도학습을 활성화합니다.
+                </p>
+              </aside>
+            </div>
 
-        <section class="content-section" id="contact">
-          <div class="section-heading" id="contact-heading"></div>
-          <div class="contact-card" id="contact-list"></div>
-        </section>
-      </div>
-    </main>
+            <div class="operation-grid" id="operation-list"></div>
+            <div class="term-note">
+              <strong>용어 안내</strong>
+              <span><b>CRM</b> Career Road Map</span>
+              <span><b>IDP</b> Individual Development Plan</span>
+            </div>
+          </section>
 
-    <footer class="site-footer">
-      <div class="page-width">
-        <strong id="footer-title"></strong>
-        <span id="footer-note"></span>
-        <a href="#top">맨 위로 ↑</a>
-      </div>
-    </footer>
+          <section class="section section--programs" id="programs">
+            <div class="section-heading">
+              <span>02 · PROGRAM</span>
+              <h2>교육 프로그램</h2>
+              <p>필요한 교육을 검색하거나 분야별로 확인하세요.</p>
+            </div>
+
+            <div class="program-tools">
+              <label class="search-box">
+                <span class="sr-only">교육 검색</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m21 21-4.35-4.35m2.35-5.4A7.75 7.75 0 1 1 3.5 11.25a7.75 7.75 0 0 1 15.5 0Z" />
+                </svg>
+                <input
+                  id="program-search"
+                  type="search"
+                  placeholder="교육명·내용·키워드 검색"
+                  autocomplete="off"
+                />
+              </label>
+              <div class="filter-list" id="filter-list" role="group" aria-label="교육 분야 필터"></div>
+            </div>
+
+            <p class="result-count" id="result-count" aria-live="polite"></p>
+            <div class="program-list" id="program-list"></div>
+            <div class="empty-state" id="empty-state" hidden>
+              <strong>검색 결과가 없습니다.</strong>
+              <p>검색어를 줄이거나 다른 교육 분야를 선택해 주세요.</p>
+            </div>
+          </section>
+
+          <section class="section section--soft" id="process">
+            <div class="section-heading">
+              <span>03 · PROCESS</span>
+              <h2>자기주도학습 참여 절차</h2>
+              <p>과정별 기준 확인부터 이수 관리까지 순서대로 진행합니다.</p>
+            </div>
+            <ol class="process-list" id="process-list"></ol>
+          </section>
+
+          <section class="section section--soft" id="faq">
+            <div class="section-heading">
+              <span>04 · FAQ</span>
+              <h2>자주 묻는 질문</h2>
+            </div>
+            <div class="faq-list" id="faq-list"></div>
+          </section>
+
+        </div>
+
+        <footer class="site-footer">
+          <strong>해외사업본부 해외교육 운영계획</strong>
+          <a href="#top">맨 위로 ↑</a>
+        </footer>
+      </main>
+    </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
