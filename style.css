@@ -71,9 +71,9 @@ a { -webkit-tap-highlight-color: transparent; }
   position: sticky;
   top: 0;
   z-index: 100;
-  color: #fff;
-  background: rgba(37, 41, 46, 0.98);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
 .header-inner {
@@ -93,10 +93,9 @@ a { -webkit-tap-highlight-color: transparent; }
 .brand img {
   width: 45px;
   height: 36px;
-  padding: 3px;
+  padding: 2px;
   object-fit: contain;
-  background: #fff;
-  border-radius: 7px;
+  background: transparent;
 }
 .brand span {
   display: grid;
@@ -108,7 +107,7 @@ a { -webkit-tap-highlight-color: transparent; }
 }
 .brand small {
   margin-top: 4px;
-  color: #abb2b9;
+  color: #8a929a;
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -127,23 +126,26 @@ a { -webkit-tap-highlight-color: transparent; }
 .top-nav a {
   flex: 0 0 auto;
   padding: 8px 12px;
-  color: #bfc5ca;
+  color: #69727c;
   border-radius: 6px;
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
 }
-.top-nav a:hover { color: #fff; }
+.top-nav a:hover {
+  color: var(--ink);
+  background: var(--soft);
+}
 .top-nav a.is-active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.07);
+  color: var(--ink);
+  background: var(--orange-soft);
   box-shadow: inset 0 -2px var(--orange);
 }
 
 .hero {
-  color: #fff;
-  background: var(--charcoal);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
 .hero-inner { padding-block: 54px 58px; }
 .hero-layout {
@@ -173,7 +175,7 @@ a { -webkit-tap-highlight-color: transparent; }
 .hero-copy > p {
   max-width: 650px;
   margin: 0;
-  color: #c9ced3;
+  color: var(--muted);
   font-size: clamp(14px, 1.8vw, 16px);
 }
 .hero-summary {
@@ -185,7 +187,7 @@ a { -webkit-tap-highlight-color: transparent; }
 .summary-chip {
   position: relative;
   padding-left: 11px;
-  color: #e1e4e7;
+  color: #59636c;
   font-size: 11px;
   font-weight: 700;
 }
@@ -201,8 +203,10 @@ a { -webkit-tap-highlight-color: transparent; }
 }
 
 .hero-contact {
-  padding-left: 28px;
-  border-left: 1px solid rgba(255, 255, 255, 0.17);
+  padding: 22px 24px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
 .hero-contact__heading {
   display: flex;
@@ -212,14 +216,14 @@ a { -webkit-tap-highlight-color: transparent; }
   margin-bottom: 13px;
 }
 .hero-contact__heading span {
-  color: #f39a60;
+  color: var(--orange-dark);
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.15em;
 }
 .hero-contact__heading h2 {
   margin: 0;
-  color: #fff;
+  color: var(--ink);
   font-size: 14px;
   letter-spacing: -0.02em;
 }
@@ -227,24 +231,24 @@ a { -webkit-tap-highlight-color: transparent; }
 .contact-card {
   position: relative;
   padding: 13px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--line);
 }
 .contact-card:last-child { padding-bottom: 0; }
 .contact-card > span {
-  color: #f39a60;
+  color: var(--orange-dark);
   font-size: 9px;
   font-weight: 800;
 }
 .contact-card h3 {
   display: inline;
   margin: 0 0 0 7px;
-  color: #fff;
+  color: var(--ink);
   font-size: 14px;
 }
 .contact-card small {
   display: block;
   margin: 2px 0 6px;
-  color: #9fa7ae;
+  color: #7c858d;
   font-size: 10px;
 }
 .contact-card a {
@@ -252,12 +256,12 @@ a { -webkit-tap-highlight-color: transparent; }
   width: fit-content;
   max-width: 100%;
   overflow-wrap: anywhere;
-  color: #d7dbde;
+  color: #59636c;
   text-decoration: none;
   font-size: 11px;
   line-height: 1.55;
 }
-.contact-card a:hover { color: #fff; }
+.contact-card a:hover { color: var(--orange-dark); }
 
 .page-stack {
   display: grid;
@@ -692,9 +696,7 @@ a { -webkit-tap-highlight-color: transparent; }
     gap: 30px;
   }
   .hero-contact {
-    padding: 22px 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.17);
-    border-left: 0;
+    padding: 22px 24px;
   }
   .hero-contact .contact-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -785,7 +787,7 @@ a { -webkit-tap-highlight-color: transparent; }
   }
   .contact-card {
     padding: 12px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--line);
   }
   .content-card {
     padding: 23px 18px;
