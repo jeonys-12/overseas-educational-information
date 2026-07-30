@@ -1,25 +1,110 @@
 {
   "meta": {
-    "pageTitle": "해외사업본부 해외교육 운영계획",
-    "projectName": "해외사업본부 해외교육 운영계획",
-    "targetShort": "1급 이하 전 임직원",
-    "targetDetail": "PJ 촉탁·현채직 포함",
+    "pageTitle": "해외사업본부 교육정보",
+    "description": "해외사업본부 교육제도와 교육 신청절차를 안내합니다.",
+    "projectName": "해외사업본부 교육정보",
+    "brandTitle": "해외사업본부",
+    "brandSubtitle": "EDUCATION GUIDE",
     "department": "해외지원팀",
-    "lastUpdated": "2026-07-29",
-    "headquartersDirection": "이라크 중심 해외사업의 수주 및 수행 역량 강화를 위한 분야별 전문인력 육성"
+    "lastUpdated": "2026-07-30",
+    "hero": {
+      "eyebrow": "OVERSEAS BUSINESS EDUCATION",
+      "title": "해외건설사업 분야별 전문가, **교육받고 Level Up**",
+      "description": "교육제도와 신청절차를 한눈에 확인하고, 직무와 경력목표에 맞는 교육을 선택하세요.",
+      "summary": [
+        "교육대상 · 1급 이하 전 임직원",
+        "교육 프로그램 · 7개",
+        "신청부터 이수관리까지 안내"
+      ]
+    }
   },
-  "operation": [
+  "navigation": [
+    { "id": "system", "label": "교육제도" },
+    { "id": "process", "label": "신청절차" },
+    { "id": "programs", "label": "교육 프로그램" },
+    { "id": "faq", "label": "FAQ" },
+    { "id": "contact", "label": "문의처" }
+  ],
+  "sections": {
+    "system": {
+      "eyebrow": "01 · EDUCATION SYSTEM",
+      "title": "해외교육 운영계획",
+      "description": "본사 교육 방향과 본부 운영 여건을 반영한 교육제도와 운영 원칙입니다."
+    },
+    "process": {
+      "eyebrow": "02 · APPLICATION PROCESS",
+      "title": "교육 신청절차",
+      "description": "과정 선택부터 신청, 학습과 이수관리까지 순서대로 진행합니다."
+    },
+    "programs": {
+      "eyebrow": "03 · PROGRAM",
+      "title": "교육 프로그램",
+      "description": "필요한 교육을 검색하거나 분야별로 확인하세요."
+    },
+    "faq": {
+      "eyebrow": "04 · FAQ",
+      "title": "자주 묻는 질문",
+      "description": "프로그램 카드에서 확인하기 어려운 운영상 주의사항입니다."
+    },
+    "contact": {
+      "eyebrow": "05 · CONTACT",
+      "title": "문의처",
+      "description": "교육제도와 과정 운영에 관한 문의사항은 아래 담당자에게 연락해 주세요."
+    }
+  },
+  "operation": {
+    "directionLabel": "본사 교육 방향",
+    "direction": "이라크 중심 해외사업의 수주 및 수행 역량 강화를 위한 분야별 전문인력 육성",
+    "summary": [
+      {
+        "label": "교육 대상",
+        "title": "1급 이하 전 임직원",
+        "detail": "PJ 촉탁·현채직 포함"
+      },
+      {
+        "label": "운영 방식",
+        "title": "자기주도학습 중심",
+        "detail": "사내·외 전문교육 병행"
+      }
+    ],
+    "principleLabel": "교육 운영 원칙",
+    "principle": "해외근무자 비중과 다양한 직종을 고려해 집합교육을 보완하고, 학회·자격과정, 독서, Channel H 등 자기주도학습을 활성화합니다.",
+    "items": [
+      {
+        "title": "자기주도학습",
+        "description": "CRM·IDP에 따라 필요한 학습을 계획하고 실행합니다."
+      },
+      {
+        "title": "교육기회 확대",
+        "description": "사내 온라인 교육과 외부 전문교육 참여를 지원합니다."
+      },
+      {
+        "title": "직무교육 활성화",
+        "description": "신규 부임자·부서별 교육을 현업 수요에 맞춰 운영합니다."
+      }
+    ],
+    "termsLabel": "용어 안내",
+    "terms": [
+      { "term": "CRM", "meaning": "Career Road Map" },
+      { "term": "IDP", "meaning": "Individual Development Plan" }
+    ]
+  },
+  "process": [
     {
-      "title": "자기주도학습",
-      "description": "CRM·IDP에 따라 필요한 학습을 계획하고 실행합니다."
+      "title": "과정 선택",
+      "description": "직무와 경력목표에 맞는 과정을 선택합니다."
     },
     {
-      "title": "교육기회 확대",
-      "description": "사내 온라인 교육과 외부 전문교육 참여를 지원합니다."
+      "title": "기준 확인",
+      "description": "지원조건·인정시간·신청방법을 확인합니다."
     },
     {
-      "title": "직무교육 활성화",
-      "description": "신규 부임자·부서별 교육을 현업 수요에 맞춰 운영합니다."
+      "title": "신청·승인",
+      "description": "과정별 안내에 따라 신청하고 필요한 승인을 받습니다."
+    },
+    {
+      "title": "학습·이수관리",
+      "description": "학습 후 증빙과 결과를 등록하고 후속조치를 완료합니다."
     }
   ],
   "programs": [
@@ -28,14 +113,7 @@
       "category": "자기주도학습",
       "title": "학회·자격과정",
       "description": "해외사업 역량을 강화하고 업무 연관 자격 취득을 장려합니다. 비즈니스 회화·영어 인터뷰, 기사·안전기사 과정 등을 활용할 수 있습니다.",
-      "keywords": [
-        "학회",
-        "자격증",
-        "영어",
-        "비즈니스 회화",
-        "기사",
-        "안전기사"
-      ],
+      "keywords": ["학회", "자격증", "영어", "비즈니스 회화", "기사", "안전기사"],
       "meta": {
         "이수 인정": "월 2시간",
         "연간 한도": "최대 10시간",
@@ -53,13 +131,7 @@
       "category": "자기주도학습",
       "title": "독서학습",
       "description": "건설산업, 직무 및 경영 관련 도서를 읽고 업무 인사이트와 전문지식을 확장합니다.",
-      "keywords": [
-        "독서",
-        "도서",
-        "건설산업",
-        "직무",
-        "경영"
-      ],
+      "keywords": ["독서", "도서", "건설산업", "직무", "경영"],
       "meta": {
         "해외근무자": "권당 월 8시간",
         "국내근무자": "권당 월 4시간",
@@ -77,16 +149,7 @@
       "category": "자기주도학습",
       "title": "온라인 교육 · Channel H",
       "description": "전략·재무·영업 등 직무역량, 리더십, 영어를 비롯한 다양한 콘텐츠를 개인 수요에 맞춰 학습합니다.",
-      "keywords": [
-        "온라인",
-        "Channel H",
-        "채널H",
-        "전략",
-        "재무",
-        "영업",
-        "리더십",
-        "영어"
-      ],
+      "keywords": ["온라인", "Channel H", "채널H", "전략", "재무", "영업", "리더십", "영어"],
       "meta": {
         "이수 인정": "수강시간 × 0.5",
         "연간 한도": "최대 20시간",
@@ -104,13 +167,7 @@
       "category": "교육환경 조성",
       "title": "건설부문 사내교육",
       "description": "Zoom 기반 온라인 교육을 활성화하고, 필요 시 본사 또는 타 본부 교육을 청강해 실무역량을 보완합니다.",
-      "keywords": [
-        "사내교육",
-        "Zoom",
-        "줌",
-        "청강",
-        "온라인"
-      ],
+      "keywords": ["사내교육", "Zoom", "줌", "청강", "온라인"],
       "meta": {
         "운영 방식": "Zoom 중심",
         "참여 방식": "교육별 별도 안내",
@@ -128,13 +185,7 @@
       "category": "교육환경 조성",
       "title": "사외 위탁교육",
       "description": "사내강사를 지정해 휴가기간 중 외부 전문교육 참여기회를 제공하고 해외건설협회 교육과정을 적극 활용합니다.",
-      "keywords": [
-        "위탁교육",
-        "사외교육",
-        "해외건설협회",
-        "사내강사",
-        "휴가"
-      ],
+      "keywords": ["위탁교육", "사외교육", "해외건설협회", "사내강사", "휴가"],
       "meta": {
         "사내강사": "지정 인원",
         "전파교육": "수료 후 3개월 이내",
@@ -156,13 +207,7 @@
       "category": "기존교육",
       "title": "신규 부임자 교육",
       "description": "이라크 현지 적응과 조기 전력화를 위해 온보딩, BNCP 소개, 해외현장 생활안내 등을 제공합니다.",
-      "keywords": [
-        "신규 부임",
-        "온보딩",
-        "이라크",
-        "BNCP",
-        "현장생활"
-      ],
+      "keywords": ["신규 부임", "온보딩", "이라크", "BNCP", "현장생활"],
       "meta": {
         "목적": "현지 조기 적응",
         "주요 내용": "BNCP·현장생활",
@@ -180,14 +225,7 @@
       "category": "기존교육",
       "title": "부서별 직무교육",
       "description": "이라크 실행예산 편성, 외주·구매, 물류 등 현업 중심 교육을 사업 재개 상황에 따라 단계적으로 확대합니다.",
-      "keywords": [
-        "직무교육",
-        "실행예산",
-        "이라크",
-        "외주",
-        "구매",
-        "물류"
-      ],
+      "keywords": ["직무교육", "실행예산", "이라크", "외주", "구매", "물류"],
       "meta": {
         "운영": "단계적 확대",
         "분야": "예산·외주·구매·물류",
@@ -199,24 +237,6 @@
           "url": "http://henc.circle.hanwha.com/neo/services/bbs/main.mvc?mid=menu_0736&selectedBoardId=22705"
         }
       ]
-    }
-  ],
-  "process": [
-    {
-      "title": "과정 선택",
-      "description": "직무와 경력목표에 맞는 과정을 선택합니다."
-    },
-    {
-      "title": "기준 확인",
-      "description": "지원조건·인정시간·신청방법을 확인합니다."
-    },
-    {
-      "title": "신청·학습",
-      "description": "필요한 승인을 받은 후 학습을 진행합니다."
-    },
-    {
-      "title": "이수 관리",
-      "description": "증빙과 결과를 등록하고 후속조치를 완료합니다."
     }
   ],
   "faqs": [
@@ -244,5 +264,19 @@
       "phone": "02-2182-3278",
       "email": "uhnm159@hanwha.com"
     }
-  ]
+  ],
+  "ui": {
+    "printButton": "인쇄 · PDF 저장",
+    "searchLabel": "교육 검색",
+    "searchPlaceholder": "교육명·내용·키워드 검색",
+    "allFilter": "전체",
+    "programLabel": "PROGRAM",
+    "stepLabel": "STEP",
+    "resultPrefix": "총",
+    "resultSuffix": "개의 교육 프로그램",
+    "emptyTitle": "검색 결과가 없습니다.",
+    "emptyDescription": "검색어를 줄이거나 다른 교육 분야를 선택해 주세요.",
+    "updatedLabel": "업데이트",
+    "topButton": "맨 위로 ↑"
+  }
 }
