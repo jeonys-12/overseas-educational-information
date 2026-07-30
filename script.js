@@ -96,7 +96,7 @@ function renderPage() {
   qs("#contact-list").innerHTML = contacts
     .map(
       (contact) =>
-        `<article class="contact-card"><span>${escapeHtml(contact.role)}</span><h3>${escapeHtml(contact.name)}</h3><small>${escapeHtml(contact.department)}</small><a href="tel:${phoneHref(contact.phone)}" aria-label="${escapeHtml(contact.name)} 전화">${escapeHtml(contact.phone)}</a><a href="mailto:${escapeHtml(contact.email)}" aria-label="${escapeHtml(contact.name)} 이메일">${escapeHtml(contact.email)}</a></article>`,
+        `<article class="contact-card"><div class="contact-card__identity"><h3>${escapeHtml(contact.name)}</h3><span>${escapeHtml(contact.role)}</span></div><p class="contact-card__department">${escapeHtml(contact.department)}</p><div class="contact-card__links"><a href="tel:${phoneHref(contact.phone)}" aria-label="${escapeHtml(contact.name)} 전화"><span>전화</span><strong>${escapeHtml(contact.phone)}</strong></a><a href="mailto:${escapeHtml(contact.email)}" aria-label="${escapeHtml(contact.name)} 이메일"><span>이메일</span><strong>${escapeHtml(contact.email)}</strong></a></div></article>`,
     )
     .join("");
 
