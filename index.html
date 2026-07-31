@@ -1,100 +1,92 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="해외사업본부 교육제도와 교육 신청절차를 안내합니다." />
-    <meta name="theme-color" content="#ffffff" />
-    <title>해외사업본부 교육정보</title>
-    <link rel="icon" href="assets/hanwha-mark.svg?v=20260729" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css?v=20260730-14" />
-    <script src="script.js?v=20260730-7" defer></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">본문 바로가기</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="해외사업본부 교육제도와 교육 신청절차를 안내합니다.">
+  <meta name="theme-color" content="#ffffff">
+  <title>해외사업본부 교육정보</title>
+  <link rel="icon" href="assets/hanwha-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20260731">
+  <script src="script.js?v=20260731" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문 바로가기</a>
 
-    <header class="site-header" id="top">
-      <div class="header-inner">
-        <a class="brand" href="#top" aria-label="교육정보 홈">
-          <img id="brand-logo" src="assets/hanwha-mark.svg?v=20260729" alt="" />
-          <span>
-            <strong id="brand-title"></strong>
-            <small id="brand-subtitle"></small>
-          </span>
-        </a>
-        <nav class="top-nav" id="top-nav" aria-label="주요 메뉴"></nav>
-      </div>
-    </header>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="교육정보 홈">
+        <img src="assets/hanwha-mark.svg" alt="">
+        <span>
+          <strong id="brand-title"></strong>
+          <small id="brand-subtitle"></small>
+        </span>
+      </a>
+      <nav class="top-nav" id="top-nav" aria-label="주요 메뉴"></nav>
+    </div>
+  </header>
 
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-inner">
-          <div class="hero-layout">
-            <div class="hero-copy">
-              <span class="eyebrow" id="hero-eyebrow"></span>
-              <h1 id="hero-title"></h1>
-              <p id="hero-description"></p>
-              <div class="hero-summary" id="hero-summary"></div>
-            </div>
-            <aside class="hero-contact" id="contact" aria-labelledby="contact-title">
-              <div class="hero-contact__heading">
-                <span id="contact-eyebrow"></span>
-                <h2 id="contact-title"></h2>
-              </div>
-              <div class="contact-list" id="contact-list"></div>
-            </aside>
-          </div>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow" id="hero-eyebrow"></span>
+          <h1 id="hero-title"></h1>
+          <p id="hero-description"></p>
+          <div class="hero-summary" id="hero-summary"></div>
         </div>
+        <aside class="hero-contact" id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <div class="contact-list" id="contact-list"></div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="container page-stack">
+      <section class="content-section" id="system" aria-labelledby="system-title">
+        <div class="section-heading" id="system-heading"></div>
+        <div class="direction-card" id="direction-card"></div>
+        <div class="system-summary" id="system-summary"></div>
+        <div class="principle-card" id="principle-card"></div>
+        <div class="operation-list" id="operation-list"></div>
+        <div class="term-note" id="term-note"></div>
       </section>
 
-      <div class="page-stack">
-        <section class="content-card" id="system" aria-labelledby="system-title">
-          <div class="section-heading" id="system-heading"></div>
-          <div class="direction-card" id="direction-card"></div>
-          <div class="system-summary" id="system-summary"></div>
-          <div class="principle-card" id="principle-card"></div>
-          <div class="operation-list" id="operation-list"></div>
-          <div class="term-note" id="term-note"></div>
-        </section>
+      <section class="content-section" id="process" aria-labelledby="process-title">
+        <div class="section-heading" id="process-heading"></div>
+        <ol class="process-list" id="process-list"></ol>
+      </section>
 
-        <section class="content-card" id="process" aria-labelledby="process-title">
-          <div class="section-heading" id="process-heading"></div>
-          <ol class="process-list" id="process-list"></ol>
-        </section>
+      <section class="content-section" id="programs" aria-labelledby="programs-title">
+        <div class="section-heading" id="programs-heading"></div>
+        <div class="program-tools">
+          <label class="search-box">
+            <span class="sr-only" id="search-label"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.4A7.75 7.75 0 1 1 3.5 11.25a7.75 7.75 0 0 1 15.5 0Z"/>
+            </svg>
+            <input id="program-search" type="search" autocomplete="off">
+          </label>
+          <div class="filter-list" id="filter-list" role="group" aria-label="교육 분야 필터"></div>
+        </div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+        <div class="program-list" id="program-list"></div>
+        <div class="empty-state" id="empty-state" hidden></div>
+      </section>
 
-        <section class="content-card" id="programs" aria-labelledby="programs-title">
-          <div class="section-heading" id="programs-heading"></div>
-          <div class="program-tools">
-            <label class="search-box">
-              <span class="sr-only" id="search-label"></span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m21 21-4.35-4.35m2.35-5.4A7.75 7.75 0 1 1 3.5 11.25a7.75 7.75 0 0 1 15.5 0Z" />
-              </svg>
-              <input id="program-search" type="search" autocomplete="off" />
-            </label>
-            <div class="filter-list" id="filter-list" role="group" aria-label="교육 분야 필터"></div>
-          </div>
-          <p class="result-count" id="result-count" aria-live="polite"></p>
-          <div class="program-list" id="program-list"></div>
-          <div class="empty-state" id="empty-state" hidden></div>
-        </section>
+      <section class="content-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading" id="faq-heading"></div>
+        <div class="faq-list" id="faq-list"></div>
+      </section>
+    </div>
+  </main>
 
-        <section class="content-card" id="faq" aria-labelledby="faq-title">
-          <div class="section-heading" id="faq-heading"></div>
-          <div class="faq-list" id="faq-list"></div>
-        </section>
-
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div>
-        <strong id="footer-title"></strong>
-        <span id="footer-detail"></span>
-      </div>
-      <a href="#top" id="footer-top"></a>
-    </footer>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  </body>
+  <footer class="container site-footer">
+    <div>
+      <strong id="footer-title"></strong>
+      <span id="footer-detail"></span>
+    </div>
+    <a href="#top" id="footer-top"></a>
+  </footer>
+</body>
 </html>
