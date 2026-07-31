@@ -114,9 +114,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(520px, 1.1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 480px);
   align-items: center;
-  gap: clamp(44px, 7vw, 78px);
+  gap: clamp(36px, 5vw, 56px);
   padding-block: 48px 52px;
 }
 .eyebrow {
@@ -147,6 +147,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   content: "";
 }
 .hero-contact {
+  width: 100%;
+  max-width: 480px;
+  justify-self: end;
   padding: 22px;
   color: var(--ink);
   background: #fff;
@@ -161,16 +164,21 @@ button, a { -webkit-tap-highlight-color: transparent; }
   letter-spacing: -.02em;
 }
 .contact-list {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
+  column-gap: 40px;
+}
+.contact-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #d8dde1;
+  content: "";
 }
 .contact-card { min-width: 0; }
-.contact-card + .contact-card {
-  padding-left: 22px;
-  margin-left: 22px;
-  border-left: 1px solid #d8dde1;
-}
 .contact-kicker {
   display: block;
   margin-bottom: 4px;
@@ -472,7 +480,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 860px) {
   .container { width: min(calc(100% - 32px), var(--content)); }
   .hero-inner { grid-template-columns: 1fr; gap: 28px; padding-block: 40px 44px; }
-  .hero-contact { padding: 24px; }
+  .hero-contact { justify-self: start; padding: 24px; }
   .content-section { padding: 38px 30px; }
   .section-heading { grid-template-columns: 1fr; gap: 3px; }
   .section-heading > span { grid-row: auto; margin: 0 0 5px; }
@@ -507,14 +515,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .top-nav a { padding: 11px 0 10px; }
   .hero h1 { font-size: clamp(28px, 9vw, 38px); }
   .hero-summary { display: grid; gap: 5px; }
-  .contact-list { grid-template-columns: 1fr; }
+  .contact-list { grid-template-columns: 1fr; column-gap: 0; }
+  .contact-list::before { display: none; }
   .contact-card + .contact-card {
     padding-top: 18px;
-    padding-left: 0;
     margin-top: 18px;
-    margin-left: 0;
     border-top: 1px solid #d8dde1;
-    border-left: 0;
   }
   .system-summary { grid-template-columns: 1fr; }
   .summary-card { border-right: 0; border-bottom: 1px solid var(--line); }
