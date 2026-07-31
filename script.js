@@ -67,7 +67,7 @@ function renderSystem(operation) {
     <article class="summary-card">
       <span>${html(item.label)}</span>
       <strong>${html(item.title)}</strong>
-      <small>${html(item.detail)}</small>
+      ${item.detail ? `<small>${html(item.detail)}</small>` : ""}
     </article>`);
   $("principle-card").innerHTML = `
     <strong>${html(operation.principleLabel)}</strong>
