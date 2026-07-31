@@ -10,10 +10,10 @@
     "hero": {
       "eyebrow": "OVERSEAS BUSINESS EDUCATION",
       "title": "해외사업 분야별 전문가 육성, **교육 받고 Level Up**",
-      "description": "교육 제도와 신청 절차를 한눈에 확인하고, 직무와 경력 목표에 맞는 교육을 선택 및 이수하세요.",
+      "description": "교육 제도와 신청 절차를 한눈에 확인하고, 직무와 경력 목표에 맞는 교육을 선택하여 이수하세요.",
       "summary": [
         "교육대상 · 차장(1을) 이하 전 임직원",
-        "교육 프로그램 · 7개",
+        "주요 교육 프로그램 · 7개",
         "신청부터 이수관리까지 안내"
       ]
     }
@@ -39,8 +39,8 @@
   "sections": {
     "system": {
       "eyebrow": "01 · EDUCATION SYSTEM",
-      "title": "해외교육 운영계획",
-      "description": "본사 교육 방향과 본부 운영 여건을 반영한 교육제도와 운영 원칙입니다."
+      "title": "해외사업본부 교육방침",
+      "description": "전사 교육 방향과 본부 운영 여건을 반영한 교육 제도와 운영 원칙입니다."
     },
     "process": {
       "eyebrow": "02 · APPLICATION PROCESS",
@@ -65,12 +65,12 @@
   },
   "operation": {
     "directionLabel": "본사 교육 방향",
-    "direction": "이라크 중심 해외사업의 수주 및 수행 역량 강화를 위한 분야별 전문인력 육성",
+    "direction": "이라크 거점 해외사업의 수주 및 수행 역량 강화를 위한, "분야별 전문인력 육성"",
     "summary": [
       {
         "label": "교육 대상",
-        "title": "1급 이하 전 임직원",
-        "detail": "PJ 촉탁·현채직 포함"
+        "title": "차장(1을) 이하 전 임직원",
+        "detail": "PJ·촉탁·현장전문직 포함"
       },
       {
         "label": "운영 방식",
