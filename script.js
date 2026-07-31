@@ -1,229 +1,245 @@
-const state = { content: null, activeFilter: "전체", query: "" };
-const qs = (selector, parent = document) => parent.querySelector(selector);
-const qsa = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+"use strict";
 
-async function loadContent() {
+const state = { content: null, filter: "", query: "" };
+const $ = (id) => document.getElementById(id);
+const html = (value) => String(value ?? "")
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
+
+const join = (items, template) => items.map(template).join("");
+const normalize = (value) => String(value ?? "").toLocaleLowerCase("ko-KR").replace(/\s+/g, "");
+const richText = (value) => html(value).replace(/\*\*(.+?)\*\*/g, "<em>$1</em>");
+const phoneHref = (value) => String(value).replace(/[^\d+]/g, "");
+
+function safeUrl(value) {
   try {
-    const response = await fetch("data/content.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    state.content = await response.json();
-    renderPage();
-  } catch (error) {
-    console.error("교육정보를 불러오지 못했습니다.", error);
-    qs("#main-content").innerHTML =
-      '<div class="page-stack"><div class="empty-state"><strong>교육정보를 불러오지 못했습니다.</strong><p>페이지를 새로고침해 주세요.</p></div></div>';
-    showToast("콘텐츠 로딩 오류가 발생했습니다.");
+    const url = new URL(value, location.href);
+    return ["http:", "https:", "mailto:"].includes(url.protocol) ? url.href : "#";
+  } catch {
+    return "#";
   }
 }
 
-function renderPage() {
-  const { meta, navigation, sections, operation, programs, process, faqs, contacts, ui } =
-    state.content;
-
-  document.title = meta.pageTitle;
-  qs('meta[name="description"]').content = meta.description;
-  setText("#brand-title", meta.brandTitle);
-  setText("#brand-subtitle", meta.brandSubtitle);
-  setText("#hero-eyebrow", meta.hero.eyebrow);
-  qs("#hero-title").innerHTML = richText(meta.hero.title);
-  setText("#hero-description", meta.hero.description);
-  qs("#hero-summary").innerHTML = meta.hero.summary
-    .map((item) => `<span class="summary-chip">${escapeHtml(item)}</span>`)
-    .join("");
-
-  qs("#top-nav").innerHTML = navigation
-    .map(
-      (item, index) =>
-        `<a href="#${escapeHtml(item.id)}" class="${index === 0 ? "is-active" : ""}">${escapeHtml(item.label)}</a>`,
-    )
-    .join("");
-
-  renderHeading("system", sections.system);
-  renderHeading("process", sections.process);
-  renderHeading("programs", sections.programs);
-  renderHeading("faq", sections.faq);
-  setText("#contact-title", "Contact");
-
-  qs("#direction-card").innerHTML =
-    `<strong>${escapeHtml(operation.directionLabel)}</strong><p>${escapeHtml(operation.direction)}</p>`;
-  qs("#system-summary").innerHTML = operation.summary
-    .map(
-      (item) =>
-        `<article class="summary-card"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.detail)}</small></article>`,
-    )
-    .join("");
-  qs("#principle-card").innerHTML =
-    `<strong>${escapeHtml(operation.principleLabel)}</strong><p>${escapeHtml(operation.principle)}</p>`;
-  qs("#operation-list").innerHTML = operation.items
-    .map(
-      (item, index) =>
-        `<article class="operation-item"><b>${String(index + 1).padStart(2, "0")}</b><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></article>`,
-    )
-    .join("");
-  qs("#term-note").innerHTML =
-    `<strong>${escapeHtml(operation.termsLabel)}</strong>${operation.terms
-      .map((item) => `<span><b>${escapeHtml(item.term)}</b> ${escapeHtml(item.meaning)}</span>`)
-      .join("")}`;
-
-  qs("#process-list").innerHTML = process
-    .map(
-      (item, index) =>
-        `<li class="process-item"><span class="process-item__number">${escapeHtml(ui.stepLabel)} ${String(index + 1).padStart(2, "0")}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></li>`,
-    )
-    .join("");
-
-  setText("#search-label", ui.searchLabel);
-  qs("#program-search").placeholder = ui.searchPlaceholder;
-  qs("#empty-state").innerHTML =
-    `<strong>${escapeHtml(ui.emptyTitle)}</strong><p>${escapeHtml(ui.emptyDescription)}</p>`;
-  const filters = [ui.allFilter, ...new Set(programs.map((program) => program.category))];
-  state.activeFilter = ui.allFilter;
-  qs("#filter-list").innerHTML = filters
-    .map(
-      (filter, index) =>
-        `<button class="filter-button ${index === 0 ? "is-active" : ""}" type="button" data-filter="${escapeHtml(filter)}" aria-pressed="${index === 0}">${escapeHtml(filter)}</button>`,
-    )
-    .join("");
-
-  qs("#faq-list").innerHTML = faqs
-    .map(
-      (faq, index) =>
-        `<article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-${index}"><span>Q. ${escapeHtml(faq.question)}</span></button><div class="faq-answer" id="faq-answer-${index}"><div><p>${escapeHtml(faq.answer)}</p></div></div></article>`,
-    )
-    .join("");
-
-  qs("#contact-list").innerHTML = contacts
-    .map(
-      (contact) =>
-        `<article class="contact-card"><div class="contact-card__identity"><h3>${escapeHtml(contact.name)}</h3><span>${escapeHtml(contact.role)}</span></div><p class="contact-card__department">${escapeHtml(contact.department)}</p><div class="contact-card__links"><a href="tel:${phoneHref(contact.phone)}" aria-label="${escapeHtml(contact.name)} 전화"><span>전화</span><strong>${escapeHtml(contact.phone)}</strong></a><a href="mailto:${escapeHtml(contact.email)}" aria-label="${escapeHtml(contact.name)} 이메일"><span>이메일</span><strong>${escapeHtml(contact.email)}</strong></a></div></article>`,
-    )
-    .join("");
-
-  setText("#footer-title", meta.projectName);
-  setText("#footer-detail", `${meta.department} · ${ui.updatedLabel} ${formatDate(meta.lastUpdated)}`);
-  setText("#footer-top", ui.topButton);
-  bindDynamicEvents();
-  renderPrograms();
-  setupSectionObserver();
+function formatDate(value) {
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("ko-KR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
 }
 
 function renderHeading(id, section) {
-  qs(`#${id}-heading`).innerHTML =
-    `<span>${escapeHtml(section.eyebrow)}</span><h2 id="${id}-title">${escapeHtml(section.title)}</h2>${section.description ? `<p>${escapeHtml(section.description)}</p>` : ""}`;
+  $(`${id}-heading`).innerHTML = `
+    <span>${html(section.eyebrow)}</span>
+    <h2 id="${id}-title">${html(section.title)}</h2>
+    ${section.description ? `<p>${html(section.description)}</p>` : ""}`;
+}
+
+function renderHeader({ meta, navigation }) {
+  document.title = meta.pageTitle;
+  document.querySelector('meta[name="description"]').content = meta.description;
+  $("brand-title").textContent = meta.brandTitle;
+  $("brand-subtitle").textContent = meta.brandSubtitle;
+  $("hero-eyebrow").textContent = meta.hero.eyebrow;
+  $("hero-title").innerHTML = richText(meta.hero.title);
+  $("hero-description").textContent = meta.hero.description;
+  $("hero-summary").innerHTML = join(
+    meta.hero.summary,
+    (item) => `<span class="summary-chip">${html(item)}</span>`,
+  );
+  $("top-nav").innerHTML = join(
+    navigation,
+    (item, index) => `<a href="#${html(item.id)}"${index ? "" : ' class="is-active"'}>${html(item.label)}</a>`,
+  );
+}
+
+function renderSystem(operation) {
+  $("direction-card").innerHTML = `
+    <strong>${html(operation.directionLabel)}</strong>
+    <p>${html(operation.direction)}</p>`;
+  $("system-summary").innerHTML = join(operation.summary, (item) => `
+    <article class="summary-card">
+      <span>${html(item.label)}</span>
+      <strong>${html(item.title)}</strong>
+      <small>${html(item.detail)}</small>
+    </article>`);
+  $("principle-card").innerHTML = `
+    <strong>${html(operation.principleLabel)}</strong>
+    <p>${html(operation.principle)}</p>`;
+  $("operation-list").innerHTML = join(operation.items, (item, index) => `
+    <article class="operation-item">
+      <b>${String(index + 1).padStart(2, "0")}</b>
+      <h3>${html(item.title)}</h3>
+      <p>${html(item.description)}</p>
+    </article>`);
+  $("term-note").innerHTML = `
+    <strong>${html(operation.termsLabel)}</strong>
+    ${join(operation.terms, (item) => `<span><b>${html(item.term)}</b> ${html(item.meaning)}</span>`)}`;
+}
+
+function renderProcess(process, ui) {
+  $("process-list").innerHTML = join(process, (item, index) => `
+    <li class="process-item">
+      <span>${html(ui.stepLabel)} ${String(index + 1).padStart(2, "0")}</span>
+      <h3>${html(item.title)}</h3>
+      <p>${html(item.description)}</p>
+    </li>`);
+}
+
+function renderProgramTools({ programs, ui }) {
+  $("search-label").textContent = ui.searchLabel;
+  $("program-search").placeholder = ui.searchPlaceholder;
+  $("empty-state").innerHTML = `<strong>${html(ui.emptyTitle)}</strong><p>${html(ui.emptyDescription)}</p>`;
+
+  const filters = [ui.allFilter, ...new Set(programs.map(({ category }) => category))];
+  state.filter = ui.allFilter;
+  $("filter-list").innerHTML = join(filters, (filter, index) => `
+    <button class="filter-button${index ? "" : " is-active"}" type="button"
+      data-filter="${html(filter)}" aria-pressed="${index === 0}">${html(filter)}</button>`);
 }
 
 function renderPrograms() {
   const { programs, ui } = state.content;
   const query = normalize(state.query);
-  const filtered = programs.filter((program) => {
-    const matchesFilter = state.activeFilter === ui.allFilter || program.category === state.activeFilter;
-    const haystack = normalize(
-      [program.category, program.title, program.description, ...(program.keywords || []), ...Object.values(program.meta || {})].join(" "),
-    );
-    return matchesFilter && (!query || haystack.includes(query));
+  const visible = programs.filter((program) => {
+    const inCategory = state.filter === ui.allFilter || program.category === state.filter;
+    const searchable = [
+      program.category,
+      program.title,
+      program.description,
+      ...(program.keywords ?? []),
+      ...Object.values(program.meta ?? {}),
+    ].join(" ");
+    return inCategory && (!query || normalize(searchable).includes(query));
   });
 
-  qs("#result-count").innerHTML = `${escapeHtml(ui.resultPrefix)} <b>${filtered.length}</b>${escapeHtml(ui.resultSuffix)}`;
-  qs("#empty-state").hidden = filtered.length > 0;
-  qs("#program-list").innerHTML = filtered
-    .map(
-      (program, index) =>
-        `<article class="program-card">
-          <div class="program-card__category"><span>${escapeHtml(ui.programLabel)} ${String(index + 1).padStart(2, "0")}</span><strong>${escapeHtml(program.category)}</strong></div>
-          <div class="program-card__body"><h3>${escapeHtml(program.title)}</h3><p>${escapeHtml(program.description)}</p>
-            <dl class="program-card__meta">${Object.entries(program.meta)
-              .map(([key, value]) => `<div><dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd></div>`)
-              .join("")}</dl>
-          </div>
-          <div class="program-card__actions">${program.links
-            .map((link) => `<a class="program-link" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`)
-            .join("")}</div>
-        </article>`,
-    )
-    .join("");
+  $("result-count").innerHTML = `${html(ui.resultPrefix)} <b>${visible.length}</b>${html(ui.resultSuffix)}`;
+  $("empty-state").hidden = visible.length > 0;
+  $("program-list").hidden = visible.length === 0;
+  $("program-list").innerHTML = join(visible, (program, index) => `
+    <article class="program-card">
+      <div class="program-category">
+        <span>${html(ui.programLabel)} ${String(index + 1).padStart(2, "0")}</span>
+        <strong>${html(program.category)}</strong>
+      </div>
+      <div class="program-body">
+        <h3>${html(program.title)}</h3>
+        <p>${html(program.description)}</p>
+        <dl>${join(Object.entries(program.meta), ([key, value]) =>
+          `<div><dt>${html(key)}</dt><dd>${html(value)}</dd></div>`)}</dl>
+      </div>
+      <div class="program-actions">${join(program.links, (link) =>
+        `<a href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${html(link.label)}</a>`)}</div>
+    </article>`);
 }
 
-function bindDynamicEvents() {
-  qsa(".filter-button").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.activeFilter = button.dataset.filter;
-      qsa(".filter-button").forEach((item) => {
-        const active = item === button;
-        item.classList.toggle("is-active", active);
-        item.setAttribute("aria-pressed", String(active));
-      });
-      renderPrograms();
-    });
-  });
-  qsa(".faq-question").forEach((button) => {
-    button.addEventListener("click", () => {
-      const item = button.closest(".faq-item");
-      const willOpen = !item.classList.contains("is-open");
-      qsa(".faq-item").forEach((faq) => {
-        faq.classList.remove("is-open");
-        qs(".faq-question", faq).setAttribute("aria-expanded", "false");
-      });
-      item.classList.toggle("is-open", willOpen);
-      button.setAttribute("aria-expanded", String(willOpen));
-    });
-  });
+function renderFaq(faqs) {
+  $("faq-list").innerHTML = join(faqs, (faq, index) => `
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-${index}">
+        <span>Q. ${html(faq.question)}</span>
+      </button>
+      <div class="faq-answer" id="faq-${index}"><div><p>${html(faq.answer)}</p></div></div>
+    </article>`);
 }
 
-function setupStaticEvents() {
-  qs("#program-search").addEventListener("input", (event) => {
-    state.query = event.target.value;
+function renderContacts(contacts) {
+  $("contact-list").innerHTML = join(contacts, (contact) => `
+    <article class="contact-card">
+      <div class="contact-identity"><h3>${html(contact.name)}</h3><span>${html(contact.role)}</span></div>
+      <p>${html(contact.department)}</p>
+      <div class="contact-links">
+        <a href="tel:${phoneHref(contact.phone)}"><span>전화</span><strong>${html(contact.phone)}</strong></a>
+        <a href="mailto:${html(contact.email)}"><span>이메일</span><strong>${html(contact.email)}</strong></a>
+      </div>
+    </article>`);
+}
+
+function observeSections() {
+  const links = [...document.querySelectorAll(".top-nav a")];
+  const observer = new IntersectionObserver((entries) => {
+    const current = entries
+      .filter(({ isIntersecting }) => isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!current) return;
+    links.forEach((link) => link.classList.toggle("is-active", link.hash === `#${current.target.id}`));
+  }, { rootMargin: "-22% 0px -65%", threshold: [0, 0.2, 0.5] });
+
+  document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
+}
+
+function renderPage() {
+  const content = state.content;
+  renderHeader(content);
+  Object.entries(content.sections)
+    .filter(([id]) => ["system", "process", "programs", "faq"].includes(id))
+    .forEach(([id, section]) => renderHeading(id, section));
+  renderSystem(content.operation);
+  renderProcess(content.process, content.ui);
+  renderProgramTools(content);
+  renderFaq(content.faqs);
+  renderContacts(content.contacts);
+  renderPrograms();
+
+  $("footer-title").textContent = content.meta.projectName;
+  $("footer-detail").textContent =
+    `${content.meta.department} · ${content.ui.updatedLabel} ${formatDate(content.meta.lastUpdated)}`;
+  $("footer-top").textContent = content.ui.topButton;
+  observeSections();
+}
+
+function bindEvents() {
+  $("program-search").addEventListener("input", ({ target }) => {
+    state.query = target.value;
     renderPrograms();
   });
+
+  $("filter-list").addEventListener("click", ({ target }) => {
+    const button = target.closest(".filter-button");
+    if (!button) return;
+    state.filter = button.dataset.filter;
+    document.querySelectorAll(".filter-button").forEach((item) => {
+      const active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    renderPrograms();
+  });
+
+  $("faq-list").addEventListener("click", ({ target }) => {
+    const button = target.closest(".faq-question");
+    if (!button) return;
+    const selected = button.closest(".faq-item");
+    const open = !selected.classList.contains("is-open");
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item.classList.remove("is-open");
+      item.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+    });
+    selected.classList.toggle("is-open", open);
+    button.setAttribute("aria-expanded", String(open));
+  });
 }
 
-function setupSectionObserver() {
-  const sections = qsa("main section[id]");
-  const navLinks = qsa(".top-nav a");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      navLinks.forEach((link) =>
-        link.classList.toggle("is-active", link.hash === `#${visible.target.id}`),
-      );
-    },
-    { rootMargin: "-22% 0px -65% 0px", threshold: [0, 0.2, 0.5] },
-  );
-  sections.forEach((section) => observer.observe(section));
-}
-
-function setText(selector, value) { qs(selector).textContent = value; }
-function normalize(value) { return String(value).toLocaleLowerCase("ko-KR").replace(/\s+/g, ""); }
-function richText(value) { return escapeHtml(value).replace(/\*\*(.+?)\*\*/g, "<em>$1</em>"); }
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-function safeUrl(value) {
+async function init() {
   try {
-    const url = new URL(value, window.location.href);
-    return ["http:", "https:", "mailto:"].includes(url.protocol) ? url.href : "#";
-  } catch { return "#"; }
-}
-function phoneHref(value) { return String(value).replace(/[^\d+]/g, ""); }
-function formatDate(value) {
-  const date = new Date(`${value}T00:00:00`);
-  return Number.isNaN(date.getTime())
-    ? value
-    : new Intl.DateTimeFormat("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" }).format(date);
-}
-function showToast(message) {
-  const toast = qs("#toast");
-  toast.textContent = message;
-  toast.classList.add("is-visible");
-  window.setTimeout(() => toast.classList.remove("is-visible"), 2800);
+    const response = await fetch("data/content.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    state.content = await response.json();
+    renderPage();
+    bindEvents();
+  } catch (error) {
+    console.error("교육정보 로딩 오류", error);
+    $("main-content").innerHTML = `
+      <div class="container load-error">
+        <strong>교육정보를 불러오지 못했습니다.</strong>
+        <p>잠시 후 페이지를 새로고침해 주세요.</p>
+      </div>`;
+  }
 }
 
-setupStaticEvents();
-loadContent();
+init();
