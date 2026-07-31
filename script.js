@@ -119,24 +119,43 @@ function renderPrograms() {
     return inCategory && (!query || normalize(searchable).includes(query));
   });
 
+  const groups = visible.reduce((items, program) => {
+    const current = items.at(-1);
+    if (current?.category === program.category) {
+      current.programs.push(program);
+    } else {
+      items.push({ category: program.category, programs: [program] });
+    }
+    return items;
+  }, []);
+
   $("result-count").innerHTML = `${html(ui.resultPrefix)} <b>${visible.length}</b>${html(ui.resultSuffix)}`;
   $("empty-state").hidden = visible.length > 0;
   $("program-list").hidden = visible.length === 0;
-  $("program-list").innerHTML = join(visible, (program, index) => `
-    <article class="program-card">
+  $("program-list").innerHTML = join(groups, (group, groupIndex) => `
+    <section class="program-group" aria-label="${html(group.category)}">
       <div class="program-category">
-        <span>${html(ui.programLabel)} ${String(index + 1).padStart(2, "0")}</span>
-        <strong>${html(program.category)}</strong>
+        <span>교육유형 ${String(groupIndex + 1).padStart(2, "0")}</span>
+        <strong>${html(group.category)}</strong>
+        <small>${group.programs.length}개 프로그램</small>
       </div>
-      <div class="program-body">
-        <h3>${html(program.title)}</h3>
-        <p>${html(program.description)}</p>
-        <dl>${join(Object.entries(program.meta), ([key, value]) =>
-          `<div><dt>${html(key)}</dt><dd>${html(value)}</dd></div>`)}</dl>
+      <div class="program-group-items">
+        ${join(group.programs, (program, programIndex) => `
+          <article class="program-row">
+            <div class="program-body">
+              <div class="program-title">
+                <span>${String(programIndex + 1).padStart(2, "0")}</span>
+                <h3>${html(program.title)}</h3>
+              </div>
+              <p>${html(program.description)}</p>
+              <dl>${join(Object.entries(program.meta), ([key, value]) =>
+                `<div><dt>${html(key)}</dt><dd>${html(value)}</dd></div>`)}</dl>
+            </div>
+            <div class="program-actions">${join(program.links, (link) =>
+              `<a href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${html(link.label)}</a>`)}</div>
+          </article>`)}
       </div>
-      <div class="program-actions">${join(program.links, (link) =>
-        `<a href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${html(link.label)}</a>`)}</div>
-    </article>`);
+    </section>`);
 }
 
 function renderFaq(faqs) {
