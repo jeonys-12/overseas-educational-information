@@ -114,7 +114,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(460px, 480px);
+  grid-template-columns: minmax(0, 1fr) minmax(480px, 500px);
   align-items: center;
   gap: clamp(36px, 5vw, 56px);
   padding-block: 48px 52px;
@@ -148,7 +148,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .hero-contact {
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   justify-self: end;
   padding: 18px 20px;
   color: var(--ink);
@@ -188,7 +188,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .contact-details { margin: 0; }
 .contact-details div {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr);
   align-items: center;
   min-height: 29px;
   border-bottom: 1px solid #d8dde1;
@@ -209,7 +209,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 2px;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
 }
 .contact-details a:hover { color: var(--orange-dark); }
 
