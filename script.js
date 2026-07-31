@@ -152,7 +152,6 @@ function renderFaq(faqs) {
 function renderContacts(contacts) {
   $("contact-list").innerHTML = join(contacts, (contact) => `
     <article class="contact-card">
-      <span class="contact-kicker">EDUCATION MANAGER</span>
       <h3>${html(contact.role)}</h3>
       <dl class="contact-details">
         <div><dt>부서</dt><dd>${html(contact.department)}</dd></div>
