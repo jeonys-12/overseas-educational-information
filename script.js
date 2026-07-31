@@ -152,12 +152,14 @@ function renderFaq(faqs) {
 function renderContacts(contacts) {
   $("contact-list").innerHTML = join(contacts, (contact) => `
     <article class="contact-card">
-      <div class="contact-identity"><h3>${html(contact.name)}</h3><span>${html(contact.role)}</span></div>
-      <p>${html(contact.department)}</p>
-      <div class="contact-links">
-        <a href="tel:${phoneHref(contact.phone)}"><span>전화</span><strong>${html(contact.phone)}</strong></a>
-        <a href="mailto:${html(contact.email)}"><span>이메일</span><strong>${html(contact.email)}</strong></a>
-      </div>
+      <span class="contact-kicker">EDUCATION MANAGER</span>
+      <h3>${html(contact.role)}</h3>
+      <dl class="contact-details">
+        <div><dt>부서</dt><dd>${html(contact.department)}</dd></div>
+        <div><dt>담당</dt><dd>${html(contact.name)}</dd></div>
+        <div><dt>연락처</dt><dd><a href="tel:${phoneHref(contact.phone)}">${html(contact.phone)}</a></dd></div>
+        <div><dt>이메일</dt><dd><a href="mailto:${html(contact.email)}">${html(contact.email)}</a></dd></div>
+      </dl>
     </article>`);
 }
 
