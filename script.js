@@ -34,8 +34,9 @@ function formatDate(value) {
 }
 
 function renderHeading(id, section) {
+  const sectionNumber = String(section.eyebrow ?? "").match(/\d+/)?.[0] ?? "";
   $(`${id}-heading`).innerHTML = `
-    <span>${html(section.eyebrow)}</span>
+    <span>${html(sectionNumber)}</span>
     <h2 id="${id}-title">${html(section.title)}</h2>
     ${section.description ? `<p>${html(section.description)}</p>` : ""}`;
 }
