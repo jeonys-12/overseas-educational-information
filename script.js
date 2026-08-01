@@ -69,15 +69,13 @@ function renderSystem(operation) {
       <strong>${html(item.title)}</strong>
       ${item.detail ? `<small>${html(item.detail)}</small>` : ""}
     </article>`);
+  const operationMethod = operation.summary[1] ?? {};
   $("principle-card").innerHTML = `
-    <strong>${html(operation.principleLabel)}</strong>
+    <div class="principle-heading">
+      <strong>${html(operation.principleLabel)}</strong>
+      <h3>${html(operationMethod.title)}</h3>
+    </div>
     <p>${html(operation.principle)}</p>`;
-  $("operation-summary").innerHTML = join(operation.summary.slice(1), (item) => `
-    <article class="summary-card">
-      <span>${html(item.label)}</span>
-      <strong>${html(item.title)}</strong>
-      ${item.detail ? `<small>${html(item.detail)}</small>` : ""}
-    </article>`);
   $("operation-list").innerHTML = join(operation.items, (item, index) => `
     <article class="operation-item">
       <b>${String(index + 1).padStart(2, "0")}</b>
