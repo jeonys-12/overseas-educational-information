@@ -288,24 +288,34 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .summary-card:last-child { border-right: 0; }
 .summary-card strong { display: block; font-size: 16px; }
 .summary-card small, .principle-card p, .operation-item p { color: var(--muted); }
-.principle-card {
-  display: grid;
-  grid-template-columns: 170px minmax(0, 1fr);
-  gap: 18px;
+.operation-panel {
   margin-top: 14px;
-  padding: 20px 22px;
-  background: var(--soft);
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+.principle-card {
+  display: grid;
+  grid-template-columns: minmax(240px, .85fr) minmax(0, 1.7fr);
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 22px 24px;
+  background: var(--soft);
+  border-bottom: 1px solid var(--line);
+}
+.principle-heading h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: -.025em;
 }
 .principle-card p, .operation-item p { margin: 0; }
 .operation-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 14px;
+  margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
 }
 .operation-item { padding: 24px; border-right: 1px solid var(--line); }
 .operation-item:last-child { border-right: 0; }
