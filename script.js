@@ -63,7 +63,7 @@ function renderSystem(operation) {
   $("direction-card").innerHTML = `
     <strong>${html(operation.directionLabel)}</strong>
     <p>${html(operation.direction)}</p>`;
-  $("system-summary").innerHTML = join(operation.summary, (item) => `
+  $("system-summary").innerHTML = join(operation.summary.slice(0, 1), (item) => `
     <article class="summary-card">
       <span>${html(item.label)}</span>
       <strong>${html(item.title)}</strong>
@@ -72,6 +72,12 @@ function renderSystem(operation) {
   $("principle-card").innerHTML = `
     <strong>${html(operation.principleLabel)}</strong>
     <p>${html(operation.principle)}</p>`;
+  $("operation-summary").innerHTML = join(operation.summary.slice(1), (item) => `
+    <article class="summary-card">
+      <span>${html(item.label)}</span>
+      <strong>${html(item.title)}</strong>
+      ${item.detail ? `<small>${html(item.detail)}</small>` : ""}
+    </article>`);
   $("operation-list").innerHTML = join(operation.items, (item, index) => `
     <article class="operation-item">
       <b>${String(index + 1).padStart(2, "0")}</b>
