@@ -63,12 +63,6 @@ function renderSystem(operation) {
   $("direction-card").innerHTML = `
     <strong>${html(operation.directionLabel)}</strong>
     <p>${html(operation.direction)}</p>`;
-  $("system-summary").innerHTML = join(operation.summary.slice(0, 1), (item) => `
-    <article class="summary-card">
-      <span>${html(item.label)}</span>
-      <strong>${html(item.title)}</strong>
-      ${item.detail ? `<small>${html(item.detail)}</small>` : ""}
-    </article>`);
   const operationMethod = operation.summary[1] ?? {};
   $("principle-card").innerHTML = `
     <div class="principle-heading">
