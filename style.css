@@ -295,14 +295,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-radius: 8px;
 }
 .principle-card {
-  display: grid;
-  grid-template-columns: minmax(240px, .85fr) minmax(0, 1.7fr);
-  align-items: center;
-  gap: 28px;
+  display: block;
   margin: 0;
   padding: 22px 24px;
   background: var(--soft);
   border-bottom: 1px solid var(--line);
+}
+.principle-heading {
+  margin-bottom: 10px;
 }
 .principle-heading h3 {
   margin: 0;
@@ -576,7 +576,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .system-summary { grid-template-columns: 1fr; }
   .summary-card { border-right: 0; border-bottom: 1px solid var(--line); }
   .summary-card:last-child { border-bottom: 0; }
-  .principle-card { grid-template-columns: 1fr; gap: 3px; }
+  .principle-card { padding-inline: 20px; }
   .process-list { grid-template-columns: 1fr; }
   .process-item, .process-item:nth-child(2) { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
   .process-item:last-child { border-bottom: 0; }
